@@ -22,9 +22,19 @@ class SourceContractTests(unittest.TestCase):
         self.assertIn("limit: int = Query(default=100, ge=1, le=1000)", self.routes_src)
         self.assertIn("offset: int = Query(default=0, ge=0)", self.routes_src)
 
+    def test_indicator_filters_are_declared(self):
+        self.assertIn("q: str | None = Query(default=None", self.routes_src)
+        self.assertIn("frequency: str | None = Query(default=None", self.routes_src)
+        self.assertIn("sector_id: int | None = Query(default=None, ge=1)", self.routes_src)
+        self.assertIn("published_only: bool = Query(default=False)", self.routes_src)
+
     def test_get_indicator_has_explicit_404(self):
         self.assertIn("HTTPException(status_code=404", self.routes_src)
         self.assertIn("Indicator not found", self.routes_src)
+
+    def test_invalid_frequency_returns_400(self):
+        self.assertIn("Invalid frequency value", self.routes_src)
+        self.assertIn("status_code=400", self.routes_src)
 
     def test_schemas_use_pydantic_v2_configdict(self):
         indicator_schema = Path("backend/app/schemas/indicator.py").read_text(encoding="utf-8")

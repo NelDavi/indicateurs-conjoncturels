@@ -17,6 +17,7 @@
 Notes :
 - `GET /api/indicators` et `GET /api/series` supportent `limit` et `offset`.
 - `GET /api/indicators/{id}` renvoie `404` si l'indicateur n'existe pas.
+- `GET /api/indicators` supporte aussi les filtres `q`, `frequency`, `sector_id`, `published_only`.
 
 ## Migration baseline
 - Alembic est configuré dans `backend/alembic`.
