@@ -21,3 +21,7 @@ Notes :
 ## Migration baseline
 - Alembic est configuré dans `backend/alembic`.
 - La migration `0001_baseline` exécute le SQL de `docs/db/schema_v1.sql`.
+
+
+## Tests
+- Exécuter : `python -m unittest backend.tests.test_routes`
