@@ -14,6 +14,10 @@
 - `GET /api/series`
 - `GET /api/data?indicator_id=&start=&end=`
 
+Notes :
+- `GET /api/indicators` et `GET /api/series` supportent `limit` et `offset`.
+- `GET /api/indicators/{id}` renvoie `404` si l'indicateur n'existe pas.
+
 ## Migration baseline
 - Alembic est configuré dans `backend/alembic`.
 - La migration `0001_baseline` exécute le SQL de `docs/db/schema_v1.sql`.

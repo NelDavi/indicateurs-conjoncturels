@@ -12,7 +12,6 @@ from sqlalchemy import (
     ForeignKey,
     Integer,
     Numeric,
-    String,
     Text,
     UniqueConstraint,
 )
